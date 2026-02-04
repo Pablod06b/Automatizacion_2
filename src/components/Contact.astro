@@ -36,24 +36,16 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
             <div
               class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1"
             >
-              <Phone className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 class="font-bold text-white">Teléfono</h3>
-              <p class="text-gray-400">+34 600 000 000</p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-4">
-            <div
-              class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mt-1"
-            >
               <Calendar className="w-5 h-5" />
             </div>
             <div>
-              <h3 class="font-bold text-white">Agenda Directa</h3>
-              <a href="#" class="text-primary hover:underline font-semibold"
-                >Reserva tu sesión gratuita -></a
+              <h3 class="font-bold text-white">Agenda una Videollamada</h3>
+              <a
+                href="https://calendly.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-primary hover:underline font-semibold"
+                >Reserva tu hueco aquí -></a
               >
             </div>
           </div>
@@ -65,7 +57,11 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
         class="lg:w-2/3 bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700"
         style="transition-delay: 200ms;"
       >
-        <form class="space-y-6">
+        <form
+          class="space-y-6"
+          action="https://formspree.io/f/TU_ID_AQUI"
+          method="POST"
+        >
           <div class="grid md:grid-cols-2 gap-6">
             <div class="space-y-2">
               <label for="name" class="text-sm font-medium text-gray-300"
