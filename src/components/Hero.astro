@@ -1,101 +1,169 @@
 ---
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight, Zap } from "lucide-react";
 ---
 
 <section class="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
   <!-- Dynamic Background -->
   <div class="absolute inset-0 bg-dark z-0">
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
-    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+    <div
+      class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
+    >
+    </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
-    
+  <div
+    class="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center"
+  >
     <!-- Text Content -->
     <div class="flex flex-col gap-6 lg:items-start text-center lg:text-left">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 w-fit mx-auto lg:mx-0 animate-fade-in">
-        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-        <span class="text-sm font-medium text-gray-300">Agencia de Automatización IA</span>
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 w-fit mx-auto lg:mx-0 animate-fade-in"
+      >
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <span class="text-sm font-medium text-gray-300"
+          >Disponible para nuevos proyectos</span
+        >
       </div>
-      
-      <h1 class="text-5xl lg:text-7xl font-display font-bold leading-tight animate-slide-up" style="animation-delay: 0.1s;">
-        Automatizamos tu negocio para que crezca <span class="text-gradient">sin límites</span>
+
+      <h1
+        class="text-5xl lg:text-7xl font-display font-bold leading-tight animate-slide-up"
+        style="animation-delay: 0.1s;"
+      >
+        Automatizaciones que te ahorran tiempo y aumentan <span
+          class="text-gradient">ingresos</span
+        >
       </h1>
-      
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 animate-slide-up" style="animation-delay: 0.2s;">
-        Recupera tu tiempo y multiplica tus beneficios integrando Inteligencia Artificial en tus procesos diarios. Menos errores, más rentabilidad.
+
+      <p
+        class="text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 animate-slide-up"
+        style="animation-delay: 0.2s;"
+      >
+        Nos encargamos de las tareas repetitivas para que tú te enfoques en lo
+        que realmente importa: crecer. Te devolvemos 10–15h a la semana.
       </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-4 animate-slide-up" style="animation-delay: 0.3s;">
-        <a href="#contacto" class="flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-primary/25">
-          Agenda una llamada
+
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-4 animate-slide-up w-full"
+        style="animation-delay: 0.3s;"
+      >
+        <a
+          href="#contacto"
+          class="flex items-center justify-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-primary/25 text-center"
+        >
+          Agenda una llamada gratuita
           <ArrowRight className="w-5 h-5" />
         </a>
-        <a href="#servicios" class="flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-lg transition-all backdrop-blur-sm">
-          Ver soluciones
-          <Zap className="w-5 h-5 text-secondary" />
+        <a
+          href="#contacto"
+          class="flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold rounded-lg transition-all backdrop-blur-sm text-center"
+        >
+          Cuéntame tu problema
         </a>
       </div>
-      
-      <div class="mt-8 flex items-center justify-center lg:justify-start gap-8 text-gray-500 text-sm animate-fade-in" style="animation-delay: 0.5s;">
-        <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-green-500 rounded-full"></div> +20% Rentabilidad</span>
-        <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-green-500 rounded-full"></div> Ahorro de costes</span>
-        <span class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-green-500 rounded-full"></div> 24/7 Operativo</span>
+
+      <div
+        class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 lg:gap-8 text-gray-500 text-sm animate-fade-in"
+        style="animation-delay: 0.5s;"
+      >
+        <span class="flex items-center gap-2"
+          ><div class="w-1.5 h-1.5 bg-green-500 rounded-full"></div> Ahorro de tiempo
+          real</span
+        >
+        <span class="flex items-center gap-2"
+          ><div class="w-1.5 h-1.5 bg-green-500 rounded-full"></div> Reducción de
+          errores</span
+        >
+        <span class="flex items-center gap-2"
+          ><div class="w-1.5 h-1.5 bg-green-500 rounded-full"></div> + Ingresos</span
+        >
       </div>
     </div>
 
     <!-- Visual/Illustration -->
-    <div class="relative hidden lg:block animate-fade-in" style="animation-delay: 0.4s;">
+    <div
+      class="relative hidden lg:block animate-fade-in"
+      style="animation-delay: 0.4s;"
+    >
       <!-- Abstract Representation of Automation -->
       <div class="relative w-full aspect-square max-w-lg mx-auto">
-        <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-full blur-[80px]"></div>
-        
-        <div class="relative z-10 bg-dark/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500">
-           <!-- Code/UI Mockup -->
-           <div class="space-y-4">
-             <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                <div class="flex gap-2">
-                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div class="text-xs text-gray-500">workflow.yml</div>
-             </div>
-             <div class="space-y-2 font-mono text-sm">
-                <div class="text-secondary">Running automation...</div>
-                <div class="text-gray-400 pl-4">> Fetching leads from CRM</div>
-                <div class="text-gray-400 pl-4">> Analyzing sentiment with GPT-4</div>
-                <div class="text-gray-400 pl-4">> Generating personalized email</div>
-                <div class="text-secondary pl-4">> Sent! (Time saved: 15m)</div>
-                <div class="text-blue-400 mt-4">Status: Completed Successfully</div>
-             </div>
-           </div>
-        </div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute -top-10 -right-10 bg-dark/60 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-bounce" style="animation-duration: 3s;">
-           <div class="flex items-center gap-3">
-             <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500">
-               <span class="font-bold">$</span>
-             </div>
-             <div>
-               <div class="text-xs text-gray-400">Ingresos Extra</div>
-               <div class="text-lg font-bold">+$4,200</div>
-             </div>
-           </div>
+        <div
+          class="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-full blur-[80px]"
+        >
         </div>
 
-        <div class="absolute -bottom-5 -left-5 bg-dark/60 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-bounce" style="animation-duration: 4s;">
-           <div class="flex items-center gap-3">
-             <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500">
-               <span class="font-bold">AI</span>
-             </div>
-             <div>
-               <div class="text-xs text-gray-400">Tiempo Ahorrado</div>
-               <div class="text-lg font-bold">128h / mes</div>
-             </div>
-           </div>
+        <div
+          class="relative z-10 bg-dark/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl transform rotate-3 hover:rotate-0 transition-all duration-500"
+        >
+          <!-- Code/UI Mockup -->
+          <div class="space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-white/10 pb-4"
+            >
+              <div class="flex gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <div class="text-xs text-gray-500">workflow.yml</div>
+            </div>
+            <div class="space-y-2 font-mono text-sm">
+              <div class="text-secondary">Running automation...</div>
+              <div class="text-gray-400 pl-4">> Fetching leads from CRM</div>
+              <div class="text-gray-400 pl-4">
+                > Analyzing sentiment with GPT-4
+              </div>
+              <div class="text-gray-400 pl-4">
+                > Generating personalized email
+              </div>
+              <div class="text-secondary pl-4">> Sent! (Time saved: 15m)</div>
+              <div class="text-blue-400 mt-4">
+                Status: Completed Successfully
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div
+          class="absolute -top-10 -right-10 bg-dark/60 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-bounce"
+          style="animation-duration: 3s;"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-500"
+            >
+              <span class="font-bold">$</span>
+            </div>
+            <div>
+              <div class="text-xs text-gray-400">Ingresos Extra</div>
+              <div class="text-lg font-bold">+$4,200</div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute -bottom-5 -left-5 bg-dark/60 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-bounce"
+          style="animation-duration: 4s;"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500"
+            >
+              <span class="font-bold">AI</span>
+            </div>
+            <div>
+              <div class="text-xs text-gray-400">Tiempo Ahorrado</div>
+              <div class="text-lg font-bold">128h / mes</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
