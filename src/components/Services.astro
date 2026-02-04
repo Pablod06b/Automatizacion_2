@@ -1,65 +1,67 @@
 ---
-import { Workflow, Bot, Database, BarChart3, Mail, Code2 } from 'lucide-react';
+import { Workflow, Bot, Database, BarChart3, Mail, Code2 } from "lucide-react";
 
 const services = [
   {
+    icon: Mail,
+    title: "Respuestas automáticas a clientes",
+    description:
+      "Respondemos automáticamente mensajes de WhatsApp, Instagram o email con información básica (horarios, precios, reservas).",
+  },
+  {
     icon: Workflow,
-    title: 'Automatización de Procesos',
-    description: 'Conectamos tus aplicaciones (Zapier, Make, n8n) para eliminar tareas repetitivas y reducir errores humanos.'
+    title: "Gestión automática de citas",
+    description:
+      "Automatizamos reservas, confirmaciones y recordatorios para evitar olvidos y pérdidas de clientes.",
   },
   {
     icon: Bot,
-    title: 'Agentes IA & Chatbots',
-    description: 'Asistentes virtuales inteligentes entrenados con tus datos para atención al cliente y soporte 24/7.'
-  },
-  {
-    icon: Database,
-    title: 'Integración CRM & Ventas',
-    description: 'Automatiza la captación, cualificación y seguimiento de leads para cerrar más ventas automáticas.'
-  },
-  {
-    icon: Mail,
-    title: 'Email Marketing Automático',
-    description: 'Secuencias de correos personalizadas que nutren a tus clientes potenciales sin que muevas un dedo.'
+    title: "Captación de nuevos clientes",
+    description:
+      "Formularios inteligentes que guardan contactos y responden al instante para no perder ningún lead.",
   },
   {
     icon: BarChart3,
-    title: 'Dashboards Inteligentes',
-    description: 'Visualiza tus métricas clave en tiempo real con reportes automatizados y toma mejores decisiones.'
+    title: "Informes automáticos",
+    description:
+      "Recibe resúmenes claros de tu negocio sin tener que revisar datos manualmente.",
   },
-  {
-    icon: Code2,
-    title: 'Scraping & Datos',
-    description: 'Extracción y procesamiento inteligente de datos web para monitorizar competencia o captar leads.'
-  }
 ];
 ---
 
 <section id="servicios" class="py-24 bg-dark-light relative overflow-hidden">
-  
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+    <div
+      class="text-center mb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700"
+    >
       <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">
-        Soluciones de <span class="text-gradient">Automatización Inteligente</span>
+        Soluciones de <span class="text-gradient"
+          >Automatización Inteligente</span
+        >
       </h2>
       <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-        Diseñamos sistemas a medida que trabajan por ti. Desde tareas simples hasta flujos de trabajo complejos.
+        Diseñamos sistemas a medida que trabajan por ti. Desde tareas simples
+        hasta flujos de trabajo complejos.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map((service, index) => (
-        <div 
-          class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8"
-          style={`transition-delay: ${index * 100}ms`}
-        >
-          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <service.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {
+        services.map((service, index) => (
+          <div
+            class="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-300 hover:-translate-y-2 animate-on-scroll opacity-0 translate-y-8"
+            style={`transition-delay: ${index * 100}ms`}
+          >
+            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <service.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+            </div>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+              {service.title}
+            </h3>
+            <p class="text-gray-400 leading-relaxed">{service.description}</p>
           </div>
-          <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-          <p class="text-gray-400 leading-relaxed">{service.description}</p>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
@@ -67,17 +69,19 @@ const services = [
 <script>
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: "0px 0px -50px 0px",
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.remove('opacity-0', 'translate-y-8');
+        entry.target.classList.remove("opacity-0", "translate-y-8");
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  document
+    .querySelectorAll(".animate-on-scroll")
+    .forEach((el) => observer.observe(el));
 </script>
