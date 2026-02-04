@@ -1,0 +1,99 @@
+---
+import { CheckCircle2, TrendingUp, Clock, ShieldCheck } from 'lucide-react';
+
+const benefits = [
+  {
+    icon: Clock,
+    title: 'Recupera +20h/semana',
+    description: 'Deja que los bots se encarguen de lo tedioso mientras tú te enfocas en estrategia.'
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Cero Errores Humanos',
+    description: 'La automatización garantiza precisión absoluta en facturación, datos y procesos críticos.'
+  },
+  {
+    icon: TrendingUp,
+    title: 'Escalabilidad Infinita',
+    description: 'Atiende a 10 o 10.000 clientes con la misma estructura y costes operativos.'
+  },
+  {
+    icon: CheckCircle2,
+    title: 'Implementación Rápida',
+    description: 'Resultados visibles en semanas, no meses. Sin grandes desarrollos de software.'
+  }
+];
+---
+
+<section class="py-24 bg-dark relative overflow-hidden">
+  <!-- Decoration -->
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      
+      <div class="space-y-8">
+        <h2 class="text-3xl md:text-5xl font-display font-bold leading-tight animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+          ¿Por qué elegir <br/><span class="text-gradient">Automatización IA?</span>
+        </h2>
+        <p class="text-gray-400 text-lg leading-relaxed animate-on-scroll opacity-0 translate-y-8 transition-all duration-700" style="transition-delay: 100ms;">
+          No solo implementamos tecnología; transformamos la cultura operativa de tu empresa para que sea más ágil, rentable y feliz.
+        </p>
+        
+        <div class="grid sm:grid-cols-2 gap-6 mt-8">
+          {benefits.map((benefit, index) => (
+            <div class="space-y-3 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700" style={`transition-delay: ${200 + index * 100}ms`}>
+              <div class="flex items-center gap-3">
+                <benefit.icon className="w-6 h-6 text-secondary" />
+                <h3 class="font-bold text-white">{benefit.title}</h3>
+              </div>
+              <p class="text-sm text-gray-400 pl-9">{benefit.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="pt-8 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700" style="transition-delay: 600ms;">
+           <a href="#contacto" class="btn-primary">
+             Solicitar Auditoría Gratuita
+           </a>
+        </div>
+      </div>
+
+      <!-- Image/Visual -->
+      <div class="relative animate-on-scroll opacity-0 translate-x-8 transition-all duration-700" style="transition-delay: 300ms;">
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark/50 backdrop-blur-sm">
+           <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent z-10"></div>
+           <!-- Pseudo UI showing growth -->
+           <div class="p-8 space-y-6">
+             <div class="flex justify-between items-end border-b border-white/10 pb-4">
+               <div>
+                 <div class="text-sm text-gray-400">ROI Mensual</div>
+                 <div class="text-4xl font-bold text-white font-mono gap-2 flex items-center">
+                    +124% <TrendingUp className="text-secondary w-6 h-6" />
+                 </div>
+               </div>
+               <div class="text-right">
+                 <div class="text-xs text-gray-500">Últimos 30 días</div>
+               </div>
+             </div>
+             
+             <!-- Fake Graph Bars -->
+             <div class="flex items-end justify-between h-40 gap-2">
+               <div class="w-full bg-white/5 hover:bg-primary/50 transition-colors rounded-t-lg h-[40%]"></div>
+               <div class="w-full bg-white/5 hover:bg-primary/50 transition-colors rounded-t-lg h-[55%]"></div>
+               <div class="w-full bg-white/5 hover:bg-primary/50 transition-colors rounded-t-lg h-[45%]"></div>
+               <div class="w-full bg-white/5 hover:bg-primary/50 transition-colors rounded-t-lg h-[70%]"></div>
+               <div class="w-full bg-white/5 hover:bg-primary/50 transition-colors rounded-t-lg h-[60%]"></div>
+               <div class="w-full bg-gradient-to-t from-primary/20 to-primary rounded-t-lg h-[90%] relative group">
+                  <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-white text-dark text-xs font-bold py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                    NOW
+                  </div>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
