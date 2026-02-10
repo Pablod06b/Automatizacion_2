@@ -58,6 +58,7 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
         style="transition-delay: 200ms;"
       >
         <form id="contactForm" class="space-y-6">
+          <!--https://formspree.io/f/mgolwwkz -->
           <div class="grid md:grid-cols-2 gap-6">
             <div class="space-y-2">
               <label for="name" class="text-sm font-medium text-gray-300"
@@ -157,16 +158,16 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
 
       try {
         const response = await fetch(
-          "http://localhost:5678/prueba-de-formulario/d121f594-5ac1-41e0-9862-873c9d5f6e8f",
+          "https://sour-horses-ring.loca.lt/prueba-de-formulario/d121f594-5ac1-41e0-9862-873c9d5f6e8f",
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              "Bypass-Tunnel-Reminder": "true", // Needed for localtunnel
             },
             body: JSON.stringify(data),
           },
         );
-
         if (response.ok) {
           statusMsg.innerText = "¡Mensaje enviado! Te contactaremos pronto.";
           statusMsg.classList.remove("hidden");
