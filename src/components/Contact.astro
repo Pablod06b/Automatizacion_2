@@ -57,11 +57,7 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
         class="lg:w-2/3 bg-white/5 border border-white/10 rounded-2xl p-8 lg:p-10 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700"
         style="transition-delay: 200ms;"
       >
-        <form
-          class="space-y-6"
-          action="https://formspree.io/f/mgolwwkz"
-          method="POST"
-        >
+        <form id="contactForm" class="space-y-6">
           <div class="grid md:grid-cols-2 gap-6">
             <div class="space-y-2">
               <label for="name" class="text-sm font-medium text-gray-300"
@@ -71,6 +67,7 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
                 type="text"
                 id="name"
                 name="name"
+                required
                 class="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                 placeholder="Tu nombre"
               />
@@ -83,6 +80,7 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
                 type="email"
                 id="email"
                 name="email"
+                required
                 class="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                 placeholder="tu@email.com"
               />
@@ -110,18 +108,21 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
               id="message"
               name="message"
               rows="4"
+              required
               class="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-              placeholder="¿Qué proceso te gustaría automatizar?, Cuentanos tu idea y te diré exactamente cómo automatizarlo."
+              placeholder="¿Qué proceso te gustaría automatizar? Cuéntanos tu idea..."
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold py-4 rounded-lg transition-all transform hover:-translate-y-1 text-lg"
+            id="submitInfo"
+            class="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold py-4 rounded-lg transition-all transform hover:-translate-y-1 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Cuéntanos tu negocio (sin compromiso)
-            <Send className="w-5 h-5" />
+            <span>Cuéntanos tu negocio (sin compromiso)</span>
+            <Send className="w-5 h-5 icon" />
           </button>
+          <p id="formStatus" class="text-center text-sm mt-4 hidden"></p>
           <p class="text-center text-gray-500 text-sm mt-4">
             En menos de 48h te decimos qué puedes automatizar.
           </p>
@@ -130,3 +131,69 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("submitInfo");
+  const statusMsg = document.getElementById("formStatus");
+  const btnText = submitBtn?.querySelector("span");
+  // const btnIcon = submitBtn?.querySelector('.icon'); // Icon might not be selectable this way if it's a React component rendered as SVG, but usually usually it's fine.
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!submitBtn || !statusMsg || !btnText) return;
+
+      // Loading state
+      const originalText = btnText.innerText;
+      btnText.innerText = "Enviando...";
+      submitBtn.setAttribute("disabled", "true");
+      statusMsg.classList.add("hidden");
+      statusMsg.className = "text-center text-sm mt-4 hidden"; // reset classes
+
+      const formData = new FormData(form as HTMLFormElement);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(
+          "http://localhost:5678/prueba-de-formulario/d121f594-5ac1-41e0-9862-873c9d5f6e8f",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          },
+        );
+
+        if (response.ok) {
+          statusMsg.innerText = "¡Mensaje enviado! Te contactaremos pronto.";
+          statusMsg.classList.remove("hidden");
+          statusMsg.classList.add("text-green-400");
+          (form as HTMLFormElement).reset();
+        } else {
+          throw new Error("Error en el envío");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        statusMsg.innerText =
+          "Hubo un error al enviar. Por favor, intenta más tarde o escríbenos por email.";
+        statusMsg.classList.remove("hidden");
+        statusMsg.classList.add("text-red-400");
+
+        // Check for mixed content/localhost issue
+        if (
+          window.location.protocol === "https:" &&
+          (error as Error).message.includes("Failed to fetch")
+        ) {
+          statusMsg.innerText =
+            "Error: No se puede conectar a n8n local desde HTTPS. Usa el email por ahora.";
+        }
+      } finally {
+        btnText.innerText = originalText;
+        submitBtn.removeAttribute("disabled");
+      }
+    });
+  }
+</script>
