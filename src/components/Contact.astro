@@ -163,6 +163,7 @@ import { Mail, Phone, MapPin, Calendar, Send } from "lucide-react";
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              "ngrok-skip-browser-warning": "true", // Skips the ngrok warning page
             },
             body: JSON.stringify(data),
           },
